@@ -2,18 +2,14 @@ Berikut adalah file readme.md untuk tugas PBP pasca uts Dhafin Fadhlan Kamal - 2
 
 # - Tugas 7 -
 
-## > checklist 1:
+## > Menjawab beberapa pertanyaan berikut pada README.md pada root folder.
 
-membuat program dimulai dengan menjalankan flutter create "mie_katalog_mobile" yang membuat kerangka kerja dengan bahasa pemrograman dart. Aplikasi yang dibuat akan memuat beberapa widget seperti tombol, appbar, dan title yang akan menjadi home page dari aplikasi. Aplikasi tersebut akan menjalankan scaffold dari main.dart yang memanggil widget-widget yang berada di menu.dart. Menu.dart itu mengandung widget-widget yang perlu ditampilkan pada halaman utama aplikasi.
-
-## > checklist 4:
-
-### checklist 4.1:
+### Pertanyaan 1: Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
 
 - Stateless Widget: Stateless widget adalah widget tanpa keadaan internal (state), yang berarti tampilan widget ini tidak berubah setelah dirender untuk pertama kalinya. Biasanya digunakan untuk elemen statis seperti teks, icon, gambar, dan sebagainya.
 - Stateful Widget: Stateful widget adalah jenis widget yang mampu mengubah tampilannya. Mereka memiliki keadaan internal (state) yang dapat diperbarui, dan ketika state berubah, widget akan dirender kembali sesuai perubahan tersebut. Stateful widget digunakan untuk elemen yang memerlukan interaksi, seperti form, pembaruan item, maupun infinite scroll bar.
 
-### checklist 4.2:
+### Pertanyaan 2: Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing.
 
 1. `MaterialApp`: Widget utama yang digunakan untuk menginisialisasi aplikasi. Biasanya merupakan parent utama dari widget kita. Biasanya digunakan untuk mengatur tema dan color palette dari applikasi kita..
 
@@ -38,3 +34,15 @@ membuat program dimulai dengan menjalankan flutter create "mie_katalog_mobile" y
 11. `Icon`: Digunakan untuk menampilkan ikon.
 
 12. `SnackBar`: Ini adalah widget yang digunakan untuk menampilkan pesan singkat di bagian bawah layar.
+
+### Pertanyaan 3: Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
+
+#### > checklist 1: Membuat sebuah program Flutter baru dengan tema inventory seperti tugas-tugas sebelumnya.
+
+membuat program dimulai dengan menjalankan """flutter create mie_katalog_mobile""" yang membuat kerangka kerja dengan bahasa pemrograman dart. Aplikasi yang dibuat akan memuat beberapa widget seperti tombol, appbar, dan title yang akan menjadi home page dari aplikasi. Aplikasi tersebut akan menjalankan scaffold dari main.dart yang memanggil widget-widget yang berada di menu.dart. Menu.dart itu mengandung widget-widget yang perlu ditampilkan pada halaman utama aplikasi.
+
+#### > Checklist 2: Membuat tiga tombol sederhana dengan ikon dan teks untuk:
+
+Checklist
+
+#### > Checklist 3:
