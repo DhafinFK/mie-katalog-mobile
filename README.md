@@ -228,7 +228,7 @@ Semua kemunculan snackbar sudah diimplementasikan dengan "eventlistener" kalau d
 
 menu.dart (pada bagian kode Shopcard Widget):
 
-```
+```dart
 child: InkWell(
   // Area responsive terhadap sentuhan
   onTap: () {
