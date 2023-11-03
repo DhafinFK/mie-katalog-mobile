@@ -39,7 +39,11 @@ Berikut adalah file readme.md untuk tugas PBP pasca uts Dhafin Fadhlan Kamal - 2
 
 #### > checklist 1: Membuat sebuah program Flutter baru dengan tema inventory seperti tugas-tugas sebelumnya.
 
-membuat program dimulai dengan menjalankan """flutter create mie_katalog_mobile""" yang membuat kerangka kerja dengan bahasa pemrograman dart. Aplikasi yang dibuat akan memuat beberapa widget seperti tombol, appbar, dan title yang akan menjadi home page dari aplikasi. Aplikasi tersebut akan menjalankan scaffold dari main.dart yang memanggil widget-widget yang berada di menu.dart. Menu.dart itu mengandung widget-widget yang perlu ditampilkan pada halaman utama aplikasi.
+membuat program dimulai dengan menjalankan
+
+`flutter create mie_katalog_mobile`
+
+yang membuat kerangka kerja dengan bahasa pemrograman dart. Aplikasi yang dibuat akan memuat beberapa widget seperti tombol, appbar, dan title yang akan menjadi home page dari aplikasi. Aplikasi tersebut akan menjalankan scaffold dari main.dart yang memanggil widget-widget yang berada di menu.dart. Menu.dart itu mengandung widget-widget yang perlu ditampilkan pada halaman utama aplikasi.
 
 #### > Checklist 2: Membuat tiga tombol sederhana dengan ikon dan teks untuk:
 
