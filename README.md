@@ -2047,3 +2047,55 @@ Implementasi Clean Architecture pada aplikasi Flutter melibatkan pemisahan kode 
   ```
 
 - checklist 4: sudah dijawab di readme.md
+
+# - Tugas 9 -
+
+## Menjawab beberapa pertanyaan berikut pada README.md pada root folder.
+
+### Pertanyaan 1: Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+
+Ya, dalam pengembangan aplikasi menggunakan Flutter (untuk frontend) dan Django (untuk backend), Anda bisa melakukan pengambilan data JSON tanpa harus membuat model khusus terlebih dahulu. Untuk sekala aplikasi yang bertujuan untuk prototyping cepat ini approach yang baik dan dapat ditolerir, namun tidak jika skala aplikasi lebih besar dan kompleks serta banyak data yang perlu di passing
+
+### Pertanyaan 2: Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+Cookie request dipakai untuk menyimpan informasi yang sudah di passing oleh django sebagai cookie ke client, sehingga penting untuk digunakan pada flutter agar frontend atau tampilan pada flutter selaras dengan informasi backend pada django
+
+### Pertanyaan 3: Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
+
+Pengambilan data dari json sehingga ditampilkan pada flutter mirip seperti ajax pada web application dimana kita melakukan akses pada suatu url dan menerima response data dari server atau url yang kita akses. Kemudian data-data JSON tersebut kita parse menjadi string dan dimasukkan ke dalam list baru sebagai instance dari suatu model yang telah kita selaraskan dengan django model. Sehingga item-item tersebut hanya perlu diakses melalui list yang disediakan dalam class yang telah di define.
+
+### Pertanyaan 4: Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+Flutter mem passing data ke authentication app di django yang khusus untuk external app nya. Flutter melakukan passing untuk username dan password yang di input di flutter. Kemudian django melakukan login pada string-string yang telah di passing oleh flutter dan apabila berhasil login maka akan memberikan success response dan menyiapkan cookie untuk penggunaan user pada lain waktu. Setelah berhasil login flutter akan melakukan navigation ke page berikutnya. Apabila user gagal untuk melakukan login maka django akan mengembalikan response error yang dapat dideteksi oleh flutter yang menandakan login gagal dan memunculkan popup.
+
+### Pertanyaan 5: Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+
+1. `MaterialApp`: Widget utama yang digunakan untuk menginisialisasi aplikasi. Biasanya merupakan parent utama dari widget kita. Biasanya digunakan untuk mengatur tema dan color palette dari applikasi kita..
+
+2. `Scaffold`: Scaffold adalah template dasar yang digunakan untuk membuat tampilan seperti applikasi pada umumnya. Scaffold memiliki parameter `appbar`, dan `drawer` sebagai navigasi utama pada applikasi kita.
+
+3. `AppBar`: Widget yang digunakan untuk membuat AppBar (Panel yang ada di atas applikasi).
+
+4. `SingleChildScrollView`: Widget yang memungkinkan childnya dapat discroll. Digunakan untuk membungkus konten utama.
+
+5. `Column`: Widget yang menampilkan elemen-elemen secara vertikal, child dari widget ini adalah list of widget / kumpulan dari widget yang akan disusun secara vertikal.
+
+6. `Text`: Widget untuk menampilkan teks. Dapat pula diatur font, warna, dan styling text disini.
+
+7. `GridView.count`: Digunakan untuk membuat grid layout dengan jumlah kolom yang diberikan.
+
+8. `InkWell`: Digunakan untuk memberikan efek sentuhan. Ini memungkinkan untuk menangani interaksi pengguna. Biasanya diterapkan pada button.
+
+### Pertanyaan 6 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+
+- checklist 1: gagal :(
+- checklist 2: <br>
+  halaman login dibuat dengan dua input textfield yang satunya password yang kemudian melakukan passing data ke django untuk ke login view externalnya. Bila berhasil akan melakukan navigation push replacement ke main page dan bila login response gagal dari django akan melakukan popup tanpa menghilangkan input yang sudah tertulis
+- checklist 3: <br>
+  Integrasi dilanjutkan di django dengan menyediakan login view baru yang menerima request dari app external dari web app nya dan melakukan login terhadap data-data yang diberikan oleh reqest post method flutter.
+- checklist 4: <br>
+  model custom saya hanya perlu menambahkan tipe indomie serta kuantitas dari indomie nya. hal tersebut saya lakukan dengan menyalin json dari model saya dan convert di quicktype
+- checklist 5: <br>
+  flutter kali ini mengakses link yang melakukan return terhadap seluruh data json dari database django dan memberikan keterangan saat menampilkan sesuai dengan atribut-atribut model yang sudah di define di django
+- checklist 6: <br>
+  setiap item pada listview checklist 5 saya jadikan inkwell yang melakukan navigation ke detail page sesuai dengan konteks yang di passing ke detail page. Untuk detail page saya tampilkan seluruh atribut dari indomie yang diakses dengan mengakses seluruh atribut yang menempel apda context yang di passing melalui flutter. Selain itu. Seluruh bagian screen yang ada deskripsi mie saya jadikan tombol untuk kembali ke daftar item dengan navigation pop

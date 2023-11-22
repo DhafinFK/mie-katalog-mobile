@@ -1,5 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:mie_katalog_mobile/screens/menu.dart';
 import 'package:mie_katalog_mobile/widgets/left_drawer.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 
 class ShopFormPage extends StatefulWidget {
   const ShopFormPage({super.key});
@@ -17,6 +22,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
   String _description = "";
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Scaffold(
       appBar: AppBar(
         title: const Center(
@@ -164,41 +170,33 @@ class _ShopFormPageState extends State<ShopFormPage> {
                   backgroundColor:
                       MaterialStateProperty.all(const Color(0xff482121)),
                 ),
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          backgroundColor: const Color(0xff4f6f52),
-                          title: const Text('Produk berhasil tersimpan',
-                              style: TextStyle(color: Colors.white)),
-                          content: SingleChildScrollView(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Nama: $_name \nHarga: $_price \nAmount: $_amount \nTipe Indomie: $_indomieType \nDescription:\n$_description',
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                          ),
-                          actions: [
-                            TextButton(
-                              child: const Text(
-                                'OK',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                    _formKey.currentState!.reset();
+                    // Kirim ke Django dan tunggu respons
+                    // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
+                    final response = await request.postJson(
+                        "http://127.0.0.1:8000/mie-katalog/create-flutter/",
+                        jsonEncode(<String, String>{
+                          'name': _name,
+                          'type': _indomieType,
+                          'amount': _amount.toString(),
+                          'price': _price.toString(),
+                          'description': _description,
+                          // TODO: Sesuaikan field data sesuai dengan aplikasimu
+                        }));
+                    if (response['status'] == 'success') {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("Produk baru berhasil disimpan!"),
+                      ));
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyHomePage()),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("Terdapat kesalahan, silakan coba lagi."),
+                      ));
+                    }
                   }
                 },
                 child: const Text(
